@@ -8,6 +8,8 @@ The typical use case of Flowstate is to avoid writer's block and get something d
 
 ## Roadmap
 
+Have suggestions/ideas for improvement? Feel free to submit them in the form of an issue (pull requests also welcome).
+
 - [ ] Setting up DNS for write.itskrish.co (currently accessible at [write.surge.sh](http://write.surge.sh))
 - [ ] Refactoring storage from localStorage to a backwards-compatible ORM-esque system.
 - [ ] Refactoring timekeeping with system time instead of setTimeout.
