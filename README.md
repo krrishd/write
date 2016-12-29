@@ -8,6 +8,15 @@ The premise is simple. You set a duration during which you write; within that du
 
 The typical use case of Flowstate is to avoid writer's block and get something down in writing. Personally, I've been using it for journalling; it's been a good exercise getting all of my thoughts, latent or prominent, down in writing. The duration has also helped me keep a consistent routine; if I know it's only going to be fifteen minutes every session, it's easier to sit down and get through it.
 
+## Setup Instructions
+
+This app was scaffolded using [create-react-app](https://github.com/facebookincubator/create-react-app) and then ejected.
+
+In order to run it locally, clone this repository, run `npm install`, and then either:
+
+- run `node scripts/start.js` to start a local server
+- run `node scripts/build.js` to create a production-optimized build
+
 ## Roadmap
 
 Have suggestions/ideas for improvement? Feel free to submit them in the form of an issue (pull requests also welcome).
