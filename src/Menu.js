@@ -8,7 +8,7 @@ import NProgress from 'nprogress';
 
 class Menu extends Component {
   componentDidMount() {
-    document.title = "Flowstate";
+    document.title = "Write";
     NProgress.done();
   }
 
