@@ -14,14 +14,32 @@ import {
   browserHistory
 } from 'react-router';
 
+import store from './configure-localStore';
+
+let appStore = store(
+  'savedWriting',
+  localStorage.getItem('savedWriting')
+);
+
 ReactDOM.render(
   (
     <Router history={browserHistory}>
       <Route path='/' component={Menu} />
-      <Route path='/write/:duration' component={Editor} />
-      <Route path='/saved' component={Saved} />
-      <Route path='/saved/:slug' component={Article} />
-      <Route path='/about' component={About} />
+      <Route
+        path='/write/:duration'
+        store={appStore}
+        component={Editor} />
+      <Route
+        path='/saved'
+        store={appStore}
+        component={Saved} />
+      <Route
+        path='/saved/:slug'
+        store={appStore}
+        component={Article} />
+      <Route
+        path='/about'
+        component={About} />
     </Router>
   ),
   document.getElementById('root')

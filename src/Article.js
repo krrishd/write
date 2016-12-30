@@ -11,12 +11,11 @@ import '../node_modules/sweetalert/dist/sweetalert.css';
 class Article extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      savedWriting: JSON.parse(localStorage.getItem('savedWriting'))
-    }
+    this.store = props.route.store;
+    this.article = this.store.getItemsByProperty('slug', props.params.slug)[0];
   }
 
-  delete(e, article) {
+  delete(e, article, self) {
     e.preventDefault();
     swal({
       title: 'Are you sure?',
@@ -26,10 +25,7 @@ class Article extends Component {
       confirmButtonText: 'Yes, delete it!',
       closeOnConfirm: false
     }, () => {
-      let savedWriting = this.state.savedWriting;
-      savedWriting.splice(
-        (savedWriting.indexOf(article)), 1);
-      localStorage.setItem('savedWriting', JSON.stringify(savedWriting));
+      self.store.removeItem(article);
       swal({
         title:'Deleted!',
         text: 'This writing no longer exists here.'
@@ -40,10 +36,7 @@ class Article extends Component {
   }
 
   render() {
-    let article = this.state
-      .savedWriting.find(el => {
-        return (el.slug == this.props.params.slug);
-      });
+    let article = this.article;
     let content = article.content;
     let date = article.date;
     document.title = date;
@@ -62,7 +55,7 @@ class Article extends Component {
           className="delete extLink"
           onClick={(e) => {
             e.preventDefault();
-            this.delete(e, article);
+            this.delete(e, article, this);
           }}>/delete</a>
       </div>
     );

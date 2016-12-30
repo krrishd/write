@@ -36,6 +36,8 @@ class Editor extends Component {
   constructor(props) {
     super(props);
 
+    this.store = props.route.store;
+
     this.state = {
       timeSinceLastEdit: 0,
       timeSinceStarted: 0,
@@ -77,18 +79,11 @@ class Editor extends Component {
       });
     }
     else if (!self.timerCleared) {
-      let savedItems;
-      if (localStorage.getItem('savedWriting')) {
-        savedItems = JSON.parse(localStorage.getItem('savedWriting'));
-      } else {
-        savedItems = [];
-      }
-      savedItems.push(
+      this.store.addItem(
         this.generateSavedArticle(
           this.state.content
         )
       );
-      localStorage.setItem('savedWriting', JSON.stringify(savedItems));
       swal({
         title:'You\'re done!',
         text: 'You can access your writing at /saved. Happy editing!'

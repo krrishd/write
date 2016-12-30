@@ -13,12 +13,8 @@ import '../node_modules/sweetalert/dist/sweetalert.css';
 class Saved extends Component {
   constructor(props) {
     super(props);
-    let savedWriting;
-    if (!localStorage.getItem('savedWriting')) {
-      savedWriting = []
-    } else {
-      savedWriting = JSON.parse(localStorage.getItem('savedWriting'))
-    }
+    this.store = props.route.store;
+    let savedWriting = props.route.store.getAll();
     this.state = {
       savedWritingAll: savedWriting,
       savedWriting
@@ -56,7 +52,7 @@ class Saved extends Component {
     return ('data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   }
 
-  deleteAll(e) {
+  deleteAll(e, self) {
     e.preventDefault();
     swal({
       title: 'Are you sure?',
@@ -66,7 +62,7 @@ class Saved extends Component {
       confirmButtonText: 'Yes, delete it all!',
       closeOnConfirm: false
     }, () => {
-      localStorage.removeItem('savedWriting');
+      self.store.reset();
       swal({
         title:'All writing deleted!',
         text: 'Hope you backed up the stuff you cared about.'
@@ -77,7 +73,7 @@ class Saved extends Component {
     })
   }
 
-  onDrop(acceptedFiles, rejectedFiles) {
+  onDrop(acceptedFiles, rejectedFiles, self) {
     let reader = new FileReader();
     if (rejectedFiles.length > 0 ||
       acceptedFiles.length == 0) {
@@ -110,7 +106,7 @@ class Saved extends Component {
               type: 'error'
             });
           }
-          localStorage.setItem('savedWriting', content);
+          self.store.setAll(contentJSON);
           swal({
             title: 'Uploaded!',
             text: 'The contents of your savefile can now be viewed locally at /saved.'
@@ -167,18 +163,23 @@ class Saved extends Component {
         <a
           href="#"
           className="delete extLink"
-          onClick={this.deleteAll}>/delete-all</a>
+          onClick={(e) => {
+            this.deleteAll(e, this)
+          }}>/delete-all</a>
         <a
           href={
-            this.genDownloadURI(localStorage.getItem('savedWriting'))
+            this.genDownloadURI(JSON.stringify(
+              self.store.getAll()
+            ))
           }
           download="savefile.json"
-          className="download extLink"
-          onClick={this.downloadSaveFile}>/download</a>
+          className="download extLink">/download</a>
         <Dropzone
           className="dropzone"
           accept="application/json"
-          onDrop={this.onDrop}>
+          onDrop={(a, r) => {
+            this.onDrop(a, r, this);
+          }}>
           <a
             className="drop extLink"
             href="#"
