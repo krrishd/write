@@ -156,8 +156,9 @@ class Saved extends Component {
             type="text"
             onChange={
               (e) => {
-                this
-                .filterSavedWriting(e.target.value);
+                this.filterSavedWriting(
+                  e.target.value
+                );
               }
             }
             placeholder="Search"/>

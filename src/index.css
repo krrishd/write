@@ -212,11 +212,20 @@ h1, h2 , h3 {
   border-left: 0px solid;
 }
 
+.search:before {
+  content: "\1F50D";
+  position: relative;
+  top: 35px;
+  right: -10px;
+  font-family: serif;
+}
+
 .search input {
   -webkit-appearance: none;
   border: none;
   padding: 10px;
-  width: calc(100% - 15px);
+  padding-left:45px;
+  width: calc(100% - 50px);
   box-shadow: 1px 1px 3px 1px rgba(0,0,0,.05);
   font-family: inherit;
   font-size: 1.2em;
