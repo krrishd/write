@@ -20,6 +20,7 @@ class Saved extends Component {
       savedWriting = JSON.parse(localStorage.getItem('savedWriting'))
     }
     this.state = {
+      savedWritingAll: savedWriting,
       savedWriting
     }
   }
@@ -38,7 +39,19 @@ class Saved extends Component {
     }
     return colour;
   }
-  
+
+  filterSavedWriting = (query) => {
+    let matchingItems = this.state.savedWritingAll
+      .filter(item => {
+        let itemWithoutHTML = item.content
+          .replace(/<[^>]*>/g, ' ');
+        return itemWithoutHTML.includes(query);
+      });
+    this.setState({
+      savedWriting: matchingItems
+    });
+  }
+
   genDownloadURI = (text) => {
     return ('data:text/plain;charset=utf-8,' + encodeURIComponent(text));
   }
@@ -138,6 +151,17 @@ class Saved extends Component {
       <div className="saved fadeIn">
         <Link to="/" className="back">Back</Link>
         <h1>Saved</h1>
+        <div className="search">
+          <input
+            type="text"
+            onChange={
+              (e) => {
+                this
+                .filterSavedWriting(e.target.value);
+              }
+            }
+            placeholder="Search"/>
+        </div>
         {savedWritingItems}
         <a
           href="#"

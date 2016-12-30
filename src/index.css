@@ -212,6 +212,20 @@ h1, h2 , h3 {
   border-left: 0px solid;
 }
 
+.search input {
+  -webkit-appearance: none;
+  border: none;
+  padding: 10px;
+  width: calc(100% - 15px);
+  box-shadow: 1px 1px 3px 1px rgba(0,0,0,.05);
+  font-family: inherit;
+  font-size: 1.2em;
+}
+
+.search input:focus {
+  outline: none;
+}
+
 .dropzone {
   display: inline-block;
 }
