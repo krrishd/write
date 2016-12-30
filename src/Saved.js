@@ -26,6 +26,7 @@ class Saved extends Component {
 
   // taken from http://stackoverflow.com/questions/3426404/create-a-hexadecimal-colour-based-on-a-string-with-javascript
   stringToColour = (str) => {
+    str = btoa(str);
     var hash = 0;
     for (var i = 0; i < str.length; i++) {
       hash = str.charCodeAt(i) + ((hash << 5) - hash);
