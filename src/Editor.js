@@ -118,6 +118,8 @@ class Editor extends Component {
     NProgress.done();
     NProgress.start();
 
+    let startTime = new Date();
+
     this.loadInterval = setInterval(() => {
 
       document.title = secondsToHms(
@@ -150,7 +152,7 @@ class Editor extends Component {
 
       this.setState({
         timeSinceLastEdit: (this.state.timeSinceLastEdit + 1),
-        timeSinceStarted: (this.state.timeSinceStarted + 1)
+        timeSinceStarted: ((new Date() - startTime)/1000)
       });
     }, 1000)
   }
