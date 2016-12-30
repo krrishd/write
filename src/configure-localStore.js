@@ -1,10 +1,10 @@
 import LocalStore from './localStore';
 
 let store = (name, existing) => {
-  if (existing) {
-    return new LocalStore('savedWriting', JSON.parse(existing));
+  if ((typeof existing) == 'string') {
+    return new LocalStore(name, JSON.parse(existing));
   }
-  return new LocalStore('savedWriting', null);
+  return new LocalStore(name, existing);
 };
 
 export default store;
