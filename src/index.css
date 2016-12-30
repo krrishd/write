@@ -178,10 +178,10 @@ h1, h2 , h3 {
   transition: .1s;
   -webkit-transition: .1s;
   -moz-transition: .1s;
-  font-size: 1.6em;
+  font-size: 1.6em !important;
   display: inline-block;
   margin: 10px 20px 10px 0;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0,0,0,0.3) !important;
   text-decoration: none;
 }
 
@@ -189,7 +189,7 @@ h1, h2 , h3 {
   transition: .1s;
   -webkit-transition: .1s;
   -moz-transition: .1s;
-  color: rgba(0,0,0,.8);
+  color: rgba(0,0,0,.8) !important;
 }
 
 .savedWritingItem a {
