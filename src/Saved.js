@@ -35,6 +35,17 @@ class Saved extends Component {
     }
     return colour;
   }
+  
+  calculateFileSize = (str) => {
+    let m = encodeURIComponent(str).match(/%[89ABab]/g);
+    let sizeInBytes = str.length + (m ? m.length : 0);
+    let sizeInKilobytes = sizeInBytes / 1024;
+    if (sizeInKilobytes > 1024) {
+      return `~ ${sizeInKilobytes / 1024} mb`;
+    } else {
+      return `~${sizeInKilobytes} kb`;
+    }
+  }
 
   filterSavedWriting = (query) => {
     let matchingItems = this.state.savedWritingAll
@@ -173,6 +184,11 @@ class Saved extends Component {
             ))
           }
           download="savefile.json"
+          title={
+            calculateFileSize(JSON.stringify(
+              self.store.getAll();                   
+            ));
+          }
           className="download extLink">/download</a>
         <Dropzone
           className="dropzone"
