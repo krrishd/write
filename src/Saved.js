@@ -37,13 +37,16 @@ class Saved extends Component {
   }
   
   calculateFileSize = (str) => {
+    if (str.length < 8) {
+      return '';
+    }
     let m = encodeURIComponent(str).match(/%[89ABab]/g);
     let sizeInBytes = str.length + (m ? m.length : 0);
-    let sizeInKilobytes = sizeInBytes / 1024;
+    let sizeInKilobytes = Math.ceil(sizeInBytes / 1024);
     if (sizeInKilobytes > 1024) {
-      return `~ ${sizeInKilobytes / 1024} mb`;
+      return `~ ${sizeInKilobytes / 1024} mb being used.`;
     } else {
-      return `~${sizeInKilobytes} kb`;
+      return `~${sizeInKilobytes} kb being used.`;
     }
   }
 
@@ -184,11 +187,6 @@ class Saved extends Component {
             ))
           }
           download="savefile.json"
-          title={
-            this.calculateFileSize(JSON.stringify(
-              self.store.getAll()                
-            ))
-          }
           className="download extLink">/download</a>
         <Dropzone
           className="dropzone"
@@ -204,6 +202,11 @@ class Saved extends Component {
             }}
             >/upload</a>
         </Dropzone>
+        <span className="filesize extLink">{
+          this.calculateFileSize(JSON.stringify(
+            self.store.getAll()                
+          ))
+        }</span>
       </div>
     );
   }

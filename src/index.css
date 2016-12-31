@@ -248,6 +248,13 @@ h1, h2 , h3 {
   display: inline-block;
 }
 
+.filesize.extLink {
+  font-size: 1em !important;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+
 @media(max-width: 400px) {
   .back, .timer {
     display: none;
