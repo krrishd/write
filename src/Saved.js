@@ -187,7 +187,7 @@ class Saved extends Component {
           title={
             calculateFileSize(JSON.stringify(
               self.store.getAll()                
-            ));
+            ))
           }
           className="download extLink">/download</a>
         <Dropzone
