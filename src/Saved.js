@@ -40,8 +40,8 @@ class Saved extends Component {
     let matchingItems = this.state.savedWritingAll
       .filter(item => {
         let itemWithoutHTML = item.content
-          .replace(/<[^>]*>/g, ' ');
-        return itemWithoutHTML.includes(query);
+          .replace(/<[^>]*>/g, ' ').toLowerCase();
+        return itemWithoutHTML.includes(query.toLowerCase());
       });
     this.setState({
       savedWriting: matchingItems
