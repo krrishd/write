@@ -250,7 +250,7 @@ h1, h2 , h3 {
 
 .filesize.extLink {
   font-size: 1em !important;
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   left: 20px;
 }
