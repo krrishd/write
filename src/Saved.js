@@ -185,7 +185,7 @@ class Saved extends Component {
           }
           download="savefile.json"
           title={
-            calculateFileSize(JSON.stringify(
+            this.calculateFileSize(JSON.stringify(
               self.store.getAll()                
             ))
           }
