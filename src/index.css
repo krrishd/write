@@ -55,6 +55,10 @@ body {
   min-width: 300px;
 }
 
+.menu:focus {
+  outline: none;
+}
+
 .about {
   font-size: 1.3em;
 }
@@ -72,15 +76,27 @@ h1, h2 , h3 {
 
 .menuItem {
   display: block;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
   text-decoration: none;
   margin: 15px auto;
-  padding: 10px 0;
-  background: #fff;
+  padding: 10px 20px;
   color: rgba(0,0,0,.8);
-  background: #fff;
+  text-align: left;
   border-radius:10px;
+}
+
+.menuItem.default:after {
+  content: 'Hit Enter to start...';
+  font-family: inherit;
+  font-size: .7em;
+  color: rgba(0,0,0,.2);
+  margin-left: 20px;
+}
+
+.menuItem.default,
+.menuItem:hover {
+  background: #fff;
   box-shadow: 1px 1px 3px 1px rgba(0,0,0,.05);
 }
 
