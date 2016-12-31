@@ -1,10 +1,24 @@
 export default class LocalStore {
-  constructor(storeName, existingStore) {
+  constructor(storeName, existingStore, errorCallback) {
     this.storeName = storeName;
     if (existingStore) {
-      localStorage[storeName] = existingStore;
+      try {
+        localStorage[storeName] = existingStore;
+      }
+      catch(error) {
+        if (error) {
+          errorCallback(error);
+        }
+      }
     } else {
-      localStorage[storeName] = JSON.stringify([]);
+      try {
+        localStorage[storeName] = JSON.stringify([]);
+      }
+      catch(error) {
+        if (error) {
+          errorCallback(error);
+        }
+      }
     }
   }
 
