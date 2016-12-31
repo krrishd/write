@@ -217,9 +217,14 @@ h1, h2 , h3 {
 }
 
 .search:before {
-  content: "\1F50D";
+  content: " ";
+  background: url(/search.png);
+  width: 25px;
+  height: 25px;
+  background-size: cover;
   position: relative;
   top: 35px;
+  display: block;
   right: -10px;
   font-family: serif;
 }
