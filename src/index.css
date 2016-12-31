@@ -218,7 +218,7 @@ h1, h2 , h3 {
 
 .search:before {
   content: " ";
-  background: url(/search.png);
+  background: url('/search-alpha.png');
   width: 25px;
   height: 25px;
   background-size: cover;

@@ -186,7 +186,7 @@ class Saved extends Component {
           download="savefile.json"
           title={
             calculateFileSize(JSON.stringify(
-              self.store.getAll();                   
+              self.store.getAll()                
             ));
           }
           className="download extLink">/download</a>
