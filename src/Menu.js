@@ -28,9 +28,11 @@ class Menu extends Component {
     }
     switch (e.keyCode) {
       case 13:
+        e.preventDefault();
         browserHistory.push(`/write/${self.indexToURL[self.state.menuIndex]}`)
       case 40:
         //down
+        e.preventDefault();
         if (self.state.menuIndex < 3) {
           self.setState({
             menuIndex: (self.state.menuIndex + 1)
@@ -43,6 +45,7 @@ class Menu extends Component {
         break;
       case 38:
         //up
+        e.preventDefault();
         if (self.state.menuIndex == 0) {
           self.setState({
             menuIndex: 3
@@ -57,10 +60,8 @@ class Menu extends Component {
   }
 
   componentDidMount(init = true) {
-    if (init) {
-      document.title = "Write";
-      NProgress.done();
-    }
+    document.title = "Write";
+    NProgress.done();
     document.querySelector(
       `.${this.indexToURL[this.state.menuIndex]}`
     ).className += ' default';
@@ -68,7 +69,7 @@ class Menu extends Component {
   }
 
   componentDidUpdate() {
-    this.componentDidMount(false);
+    this.componentDidMount();
   }
 
   componentDidUnmount() {
