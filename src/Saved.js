@@ -173,7 +173,9 @@ class Saved extends Component {
             }
             placeholder="Search"/>
         </div>
-        {savedWritingItems}
+        <div className="savedItems">
+          {savedWritingItems}
+        </div>
         <a
           href="#"
           className="delete extLink"

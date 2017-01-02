@@ -72,7 +72,7 @@ class Menu extends Component {
     this.componentDidMount();
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     window.removeEventListener('keydown');
   }
 
