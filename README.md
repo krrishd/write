@@ -1,8 +1,6 @@
 # Write
 
-![GIF of the app](https://github.com/krrishd/write/raw/master/demo.gif)
-
-A free, web-based writing app based on [Flowstate](http://flowstate.com). Built using React.
+A web-based writing app based on [Flowstate](http://flowstate.com). Built using React.
 
 The premise is simple. You set a duration during which you write; within that duration, if you stop typing for more than 5 seconds, all your progress is lost.
 
