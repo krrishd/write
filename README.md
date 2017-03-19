@@ -19,7 +19,7 @@ In order to run it locally, clone this repository, run `npm install`, and then e
 
 Have suggestions/ideas for improvement? Feel free to submit them in the form of an issue (pull requests also welcome).
 
-- [ ] Setting up DNS for write.itskrish.co (currently accessible at [write.surge.sh](http://write.surge.sh))
+- [x] Setting up DNS for write.itskrish.co (formerly accessible at [write.surge.sh](http://write.surge.sh))
 - [x] Refactoring storage from localStorage to a backwards-compatible ORM-esque system.
 - [x] Refactoring timekeeping with system time instead of setTimeout.
 - [ ] Setting up benchmarking + optimizing for speed.
