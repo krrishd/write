@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "nprogress": "^0.2.0",
+    "quill": "^1.2.6",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-dropzone": "^3.7.3",

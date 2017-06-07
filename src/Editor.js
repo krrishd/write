@@ -6,8 +6,8 @@ import {
 } from 'react-router';
 
 import ReactQuill from 'react-quill';
-import '../node_modules/react-quill/node_modules/quill/dist/quill.base.css';
-import '../node_modules/react-quill/node_modules/quill/dist/quill.snow.css';
+import '../node_modules/quill/dist/quill.core.css';
+import '../node_modules/quill/dist/quill.snow.css';
 
 import NProgress from 'nprogress';
 import '../node_modules/nprogress/nprogress.css';
