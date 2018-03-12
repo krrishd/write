@@ -1,6 +1,6 @@
 # Write
 
-A web-based writing app based on [Flowstate](http://flowstate.com). Built using React.
+A web-based writing app based on [Flowstate](http://hailoverman.com/flowstate). Built using React.
 
 The premise is simple. You set a duration during which you write; within that duration, if you stop typing for more than 5 seconds, all your progress is lost.
 
